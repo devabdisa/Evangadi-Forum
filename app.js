@@ -11,15 +11,19 @@ const dbConnection = require("./db/dbConfig");
 
 const createTables = require("./db/dbSchema");
 
-// app.get("/", (req, res) => {
-//   res.send("Welcome");
-// });
+// Import middleware
+const verifyUserToken = require("./middleware/authMiddleware");
+
 
 // User route middleware file
 const userRoutes = require("./routes/userRoutes");
+const answerRoutes = require("./routes/answerRoutes");
 
 // users routes middleware
 app.use("/api/users", userRoutes);
+
+// Answers routes middleware 
+app.use("/api", verifyUserToken, answerRoutes);
 
 // Create tables with an endpoint
 app.get("/create-table", createTables);
