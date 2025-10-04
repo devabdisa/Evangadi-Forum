@@ -67,73 +67,98 @@ const Register = () => {
   };
 
   return (
-    <div className="register-page">
-      <div className="register-box">
-        <h2>Join the Newtwork</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="name-fields">
+    <div className="wrapper-container">
+      {/* Registration Section */}
+      <div className="register-page">
+        <div className="register-box">
+          <h2>Join the Network</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="name-fields">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                className="input-field"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                required
+              />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                className="input-field"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
             <input
               type="text"
-              name="firstName"
-              placeholder="First Name"
+              name="username"
+              placeholder="Username"
               className="input-field"
-              value={formData.firstName}
+              value={formData.username}
               onChange={handleInputChange}
               required
             />
             <input
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
+              type="email"
+              name="email"
+              placeholder="Email"
               className="input-field"
-              value={formData.lastName}
+              value={formData.email}
               onChange={handleInputChange}
               required
             />
-          </div>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            className="input-field"
-            value={formData.username}
-            onChange={handleInputChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="input-field"
-            value={formData.email}
-            onChange={handleInputChange}
-            required
-          />
-          <div className="password-wrapper">
-            <input
-              type={showPassword ? "text" : "password"}
-              name="password"
-              placeholder="Password"
-              className="input-field"
-              value={formData.password}
-              onChange={handleInputChange}
-              required
-            />
-            <button
-              type="button"
-              className="password-toggle"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? "Hide" : "Show"}
+            <div className="password-wrapper">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                className="input-field"
+                value={formData.password}
+                onChange={handleInputChange}
+                required
+              />
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+            <button type="submit" className="submit-button" disabled={loading}>
+              {loading ? "Signing up..." : "Sign Up"}
             </button>
-          </div>
-          <button type="submit" className="submit-button" disabled={loading}>
-            {loading ? "Signing up..." : "Sign Up"}
-          </button>
-        </form>
-        <p className="switch-text">
-          Already have an account? <Link to="/login">Login</Link>
-        </p>
+          </form>
+          <p className="switch-text">
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
+        </div>
+      </div>
+
+      {/* About container section */}
+      <div className="container">
+        <h3>About</h3>
+        <h1>Evangadi Network</h1>
+        <div>
+          <p>
+            No matter what stage of life you are in, whether you're starting
+            elementary school or being promoted to CEO of a Fortune 500 company,
+            you have much to offer to those who are trying to follow in your
+            footsteps.
+          </p>
+          <p>
+            Whether you are willing to share your knowledge or you are just
+            looking to meet mentors of your own, please start by joining the
+            network here.
+          </p>
+          <a href="/HowItWorks">
+            <button className="button">HOW IT WORKS</button>
+          </a>
+        </div>
       </div>
     </div>
   );

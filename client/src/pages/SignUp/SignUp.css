@@ -1,18 +1,32 @@
-.register-page {
-  background: url("https://www.evangadi.com/themes/humans/assets/images/misc/bg-svg-f.svg")
-    center/cover no-repeat;
-  min-height: 100vh;
+/* Reset & basic box-sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== Wrapper Container ===== */
+.wrapper-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 2rem;
   padding: 20px;
+}
+
+/* ===== Register Page ===== */
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .register-box {
   background: #fff;
-  padding: 40px;
   border-radius: 10px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  padding: 40px;
   width: 100%;
   max-width: 500px;
   text-align: center;
@@ -24,17 +38,17 @@
   margin-bottom: 20px;
 }
 
+.name-fields {
+  display: flex;
+  gap: 10px;
+}
+
 .input-field {
   width: 100%;
   padding: 14px;
   margin: 10px 0 20px 0;
   border: 1px solid #ccc;
   border-radius: 10px;
-}
-
-.name-fields {
-  display: flex;
-  gap: 10px;
 }
 
 .password-wrapper {
@@ -46,10 +60,11 @@
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
   border: none;
+  background: none;
   cursor: pointer;
   color: #555;
+  font-weight: 600;
 }
 
 .submit-button {
@@ -63,7 +78,118 @@
   cursor: pointer;
 }
 
+.submit-button:hover {
+  background-color: #e55a00;
+}
+
+/* Switch Text */
 .switch-text {
   margin-top: 15px;
   font-size: 14px;
+}
+
+.switch-text a {
+  color: #ff8500;
+  text-decoration: none;
+}
+
+.switch-text a:hover {
+  text-decoration: underline;
+}
+
+/* ===== About Section ===== */
+.container {
+  text-align: center;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  max-width: 800px;
+  width: 100%;
+}
+
+.container h1 {
+  font-size: 38px;
+  color: rgb(75,69,111);
+  font-weight: 500;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+
+.container h3 {
+  color: #ff8500;
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.container p {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(75,69,111);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.container a {
+  color: #ff8500;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.container a:hover {
+  text-decoration: underline;
+}
+
+.container .button {
+  margin-top: 30px;
+  background-color: #ff8500;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.container .button:hover {
+  background-color: #e55a00;
+}
+
+/* ===== Media Queries ===== */
+@media (min-width: 768px) {
+  .wrapper-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 40px;
+  }
+
+  .register-box {
+    max-width: 530px;
+    padding: 70px;
+  }
+
+  .container {
+    max-width: 600px;
+    padding: 40px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 767px) {
+  .name-fields {
+    flex-direction: column;
+  }
+
+  .container h1,
+  .container p {
+    text-align: center;
+  }
+
+  .wrapper-container {
+    flex-direction: column;
+    padding: 20px;
+  }
 }
