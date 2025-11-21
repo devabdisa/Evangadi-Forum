@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios"; // ✅ Use axios directly
+
 import styles from "./EditAnswer.module.css";
 import { UserContext } from "../../context/UserProvider";
 import DOMPurify from "dompurify";
@@ -11,7 +11,6 @@ function EditAnswer() {
   const navigate = useNavigate(); // Navigate after update or discard
   const [user] = useContext(UserContext); // Current logged-in user
   const token = localStorage.getItem("token"); // JWT token
-
   const [loading, setLoading] = useState(true); // Loading state while fetching answer
   const [error, setError] = useState(""); // Error messages
   const [answer, setAnswer] = useState(""); // Current answer content
@@ -22,7 +21,6 @@ function EditAnswer() {
     const fetchAnswer = async () => {
       try {
         const response = await axiosInstance.get(`/answers/${answer_id}`);
-        console.log("Answer data:", response.data);
 
         // Set answer content and original content
         setAnswer(response.data.answer || "");

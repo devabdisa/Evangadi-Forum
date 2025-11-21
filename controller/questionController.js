@@ -116,9 +116,9 @@ async function updateQuestion(req, res) {
     }
 
     // Check ownership clearly
-    if (parseInt(existing[0].user_id, 10) !== parseInt(userid, 10)) {
+    if (existing[0].user_id !== userid) {
       return res.status(403).json({
-        message: `You are not authorized to update this question. (Owner: ${existing[0].user_id}, Your ID: ${userid})`,
+        message: "You are not authorized to update this question.",
       });
     }
 
@@ -157,9 +157,9 @@ async function deleteQuestion(req, res) {
     }
 
     // Check ownership
-    if (parseInt(existing[0].user_id, 10) !== parseInt(userid, 10)) {
+    if (existing[0].user_id !== userid) {
       return res.status(403).json({
-        message: `You are not authorized to delete this question. (Owner: ${existing[0].user_id}, Your ID: ${userid})`,
+        message: "You are not authorized to delete this question.",
       });
     }
 

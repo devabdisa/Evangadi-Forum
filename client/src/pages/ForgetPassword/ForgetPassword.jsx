@@ -42,7 +42,7 @@ function ForgetPassword() {
       // Handle different error scenarios
       if (err.code === "NETWORK_ERROR" || err.code === "ECONNREFUSED") {
         setError(
-          "Cannot connect to server. Make sure backend is running on port 5500."
+          "Cannot connect to server. Make sure backend is running."
         );
       } else if (err.response?.status === 404) {
         setError("Endpoint not found. Check backend routes.");

@@ -44,7 +44,7 @@ async function register(req, res) {
     );
     return res.status(StatusCodes.CREATED).json({ msg: "user table created" });
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
       .json({ msg: "something went wrong, try again later!" });
@@ -83,7 +83,7 @@ async function login(req, res) {
 
     return res.status(StatusCodes.OK).json({ msg: "login successful", token });
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
     return res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
       .json({ msg: "something went wrong, try again later!" });
@@ -125,7 +125,7 @@ async function forgetPassword(req, res) {
       msg: "If the email exists, a reset link has been sent",
     });
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       msg: "Something went wrong, try again later!",
     });
