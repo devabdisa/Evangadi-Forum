@@ -1,4 +1,5 @@
 import { createContext, useState, useContext } from "react";
+import axios from "../API/axios";
 
 // Create a context to share question-related state across the app
 export const QuestionContext = createContext();
@@ -21,8 +22,8 @@ export function QuestionProvider({ children }) {
     setLoading(true); // Start loading
     setError(null); // Clear any previous errors
     try {
-      // const response = await axios.get("/api/question");
-      // setQuestions(response.data);
+      const response = await axios.get("/question");
+      setQuestions(response.data);
     } catch (err) {
       setError("Failed to fetch questions"); // Set error if fetch fails
     } finally {
@@ -35,8 +36,8 @@ export function QuestionProvider({ children }) {
     setLoading(true); // Start loading
     setError(null); // Clear any previous errors
     try {
-      // const response = await axios.get(`/api/question/${questionId}`);
-      // setCurrentQuestion(response.data);
+      const response = await axios.get(`/question/${questionId}`);
+      setCurrentQuestion(response.data);
     } catch (err) {
       setError("Failed to fetch question"); // Set error if fetch fails
     } finally {

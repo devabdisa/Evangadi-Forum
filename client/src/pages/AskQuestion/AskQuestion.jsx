@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./AskQuestion.module.css";
 import axiosInstance from "../../API/axios";

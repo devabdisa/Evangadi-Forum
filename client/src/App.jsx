@@ -62,6 +62,7 @@ function App() {
         user_name: decoded.username,
         token: token,
       });
+      
     } catch (error) {
       console.error("Authentication error:", error.message);
       // If any error occurs during check, remove token and log out
